@@ -1,14 +1,19 @@
 using homework.webspa.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.NodeServices;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Polly;
 using SolrNet;
 using SolrNet.Impl;
 using System;
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 using web.Model;
 
 namespace homework.webspa
@@ -44,18 +49,16 @@ namespace homework.webspa
             services.AddSolrNet<Medium>(solrEndpoint + "media");
 
             services.AddTransient(typeof(ISearchService), typeof(SolrService));
+
+            services.AddHttpClient("solrapi", c => { c.BaseAddress = new Uri(solrEndpoint); })
+                    .AddTransientHttpErrorPolicy(p => p.WaitAndRetryAsync(3, _ => TimeSpan.FromMilliseconds(600)));
         }
 
-        public void InitializeSolr(ISearchService searchService)
-        {
-            //   var result =  nodeServices.InvokeAsync<int>("ClientApp/public/SolrSetup/InitSolrDocuments.js").GetAwaiter().GetResult();
-            //   searchService.AddCores();
-        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IHttpClientFactory httpClient)
         {
-            //  InitializeSolr(searchService);
+            InitSolr(env, httpClient).GetAwaiter().GetResult();
 
             if (env.IsDevelopment())
             {
@@ -85,6 +88,13 @@ namespace homework.webspa
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+        }
+
+        private async Task InitSolr(IHostingEnvironment env, IHttpClientFactory httpClient)
+        {
+            var solr = new SolrInitializer(httpClient, env);
+
+            await solr.Initialize();
         }
     }
 }

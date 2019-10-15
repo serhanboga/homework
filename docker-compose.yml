@@ -1,22 +1,22 @@
 version: '3.4'
 
 services:
-  solr.api:   
+  solrapi:   
    build:      
     context: .
     dockerfile: homework.webspa/Setup/solr/Dockerfile
+   networks:
+    - homeworknetwork
  
   homework.webspa:
     image: ${DOCKER_REGISTRY-}homeworkwebspa
     build:
       context: .
       dockerfile: homework.webspa/Dockerfile
+    networks:
+    - homeworknetwork
     depends_on:
-      - solr.api
+      - solrapi
 
-  solrinit:
-    build:      
-      context: .
-      dockerfile: homework.webspa/Setup/node/Dockerfile
-    depends_on:
-      - homework.webspa
+networks:
+  homeworknetwork:

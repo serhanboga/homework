@@ -15,6 +15,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.12" />
     <PackageReference Include="SolrNet" Version="1.0.18" />
     <PackageReference Include="SolrNet.Core" Version="1.0.18" />
@@ -42,6 +43,12 @@
     <None Include="Setup\solr\configs\locks\conf\configoverlay.json" />
     <None Include="Setup\solr\configs\locks\conf\params.json" />
     <None Include="Setup\solr\configs\media\conf\params.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Setup\solr\sv_lsm_data.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

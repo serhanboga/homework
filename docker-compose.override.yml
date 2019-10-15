@@ -1,18 +1,15 @@
 version: '3.4'
 
 services:
-  solr.api: 
+  solrapi: 
    ports:
     - "8983:8983"
 
   homework.webspa:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - SolrEndpoint=http://solr.api:8983/solr/
+      - SolrEndpoint=http://solrapi:8983/solr/
     ports:
       - "80"
 
-  solrinit:
-    ports:
-      - "8983"
-       
+   
