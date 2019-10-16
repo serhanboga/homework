@@ -11,15 +11,3 @@ RUN chown -R solr:solr /opt/solr/server/solr/configsets/
 USER solr 
 
 CMD ["/opt/solr/bin/solr", "-f"] 
- 
-
-#
-#
-#FROM    solr
-#MAINTAINER  Martijn Koster "mak-docker@greenhills.co.uk"
-#
-#COPY solr1_configs /opt/solr/server/solr/configsets/solr1_configs
-#USER root
-#RUN chown -R solr:solr /opt/solr/server/solr/configsets/solr1_configs
-#USER solr
-#CMD ["/opt/solr/bin/solr", "-f"]

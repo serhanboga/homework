@@ -51,7 +51,7 @@ namespace homework.webspa
             services.AddTransient(typeof(ISearchService), typeof(SolrService));
 
             services.AddHttpClient("solrapi", c => { c.BaseAddress = new Uri(solrEndpoint); })
-                    .AddTransientHttpErrorPolicy(p => p.WaitAndRetryAsync(3, _ => TimeSpan.FromMilliseconds(600)));
+                    .AddTransientHttpErrorPolicy(p => p.WaitAndRetryAsync(10, _ => TimeSpan.FromMilliseconds(1000)));
         }
 
 
