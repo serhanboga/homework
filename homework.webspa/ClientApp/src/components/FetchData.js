@@ -78,7 +78,7 @@ export class FetchData extends Component {
                 <h3 className="text-muted text-center mt-5"> Entity Search</h3>
                 <br />
                 <div className="form-group">
-                    <input type="text" onChange={this.handleInputChange} className="form-control mt-2" id="searchKey" aria-describedby="Search" placeholder="Start searching" ref={input => this.search = input} />
+                    <input type="text" onChange={this.handleInputChange} onPaste={this.handleInputChange} className="form-control mt-2" id="searchKey" aria-describedby="Search" placeholder="Start searching" ref={input => this.search = input} />
                 </div>
 
                 <div className="form-group">

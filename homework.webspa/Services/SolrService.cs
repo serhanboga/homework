@@ -70,7 +70,7 @@ namespace homework.webspa.Services
             var options = new QueryOptions();
 
             options.ExtraParams = extraParams;
-            options.Fields = new[] { "id", "buildingId", "buildingshortCut", "buildingName", "buildingDescription", "type", "name", "serialNumber", "floor", "roomNumber", "description", "score" };
+            options.Fields = new[] { "id", "buildingId", "buildingShortCut", "buildingName", "buildingDescription", "type", "name", "serialNumber", "floor", "roomNumber", "description", "score" };
 
             var result = _locks.Query(new SolrQuery(text), options);
             return result;

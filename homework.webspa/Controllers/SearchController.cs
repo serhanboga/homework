@@ -135,7 +135,7 @@ namespace homework.webspa.Controllers
             // TODO: Exception handling!
             IEnumerable<SearchResult> result = new List<SearchResult>();
 
-            if (text != null && text.Length > 2)
+            if (text != null && text.Length >= 2)
             {
                 result = _solr.Search(text);
             }

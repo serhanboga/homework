@@ -52,7 +52,7 @@ namespace homework.webspa.Services
         Data FlattenJson()
         {
             var path = Path.Combine(_env.ContentRootPath, "Setup/solr/sv_lsm_data.json");
-            string content = File.ReadAllText(path);
+            string content = File.ReadAllText(path).Replace("null", "\"\""); // convert nulls to empty string TODO: rethink about joins below
 
             var sourceData = Newtonsoft.Json.JsonConvert.DeserializeObject<Data>(content);
 
