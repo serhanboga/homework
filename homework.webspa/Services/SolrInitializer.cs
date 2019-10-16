@@ -21,7 +21,7 @@ namespace homework.webspa.Services
             _clientFactory = clientFactory;
             _env = env;
         }
-
+        // SEEDER
         public async Task Initialize()
         {
             var client = _clientFactory.CreateClient("solrapi");
@@ -83,25 +83,12 @@ namespace homework.webspa.Services
             return sourceData;
         }
     }
+
     public class Data
     {
         public List<Dictionary<string, string>> buildings { get; set; }
         public List<Dictionary<string, string>> locks { get; set; }
         public List<Dictionary<string, string>> groups { get; set; }
         public List<Dictionary<string, string>> media { get; set; }
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 }

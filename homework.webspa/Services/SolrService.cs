@@ -124,8 +124,7 @@ namespace homework.webspa.Services
 
             var result = new List<SearchResult>();
 
-            // TODO: REFACTOR
-            // This is bad code
+            // TODO: REFACTOR This is bad code           
             #region Refactor
             foreach (var item in buildings)
             {
@@ -170,10 +169,5 @@ namespace homework.webspa.Services
 
             return result;
         }
-
-
-       
-
-
     }
 }
