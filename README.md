@@ -1,6 +1,6 @@
 ## About Project
 
-I used [Apache Solr]: https://lucene.apache.org/solr/ for weighted search. 
+I used [Apache Solr](https://lucene.apache.org/solr) for weighted search. 
 UI is implemented with React. API for UI is Asp.net core, which makes Http calls to Solr instance. 
 Solr and Asp.net Core runs on  docker containers (docker-compose).  
 
