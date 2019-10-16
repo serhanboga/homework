@@ -7,7 +7,7 @@ UI is implemented with React. API for UI is Asp.net core, which makes Http calls
 For weighted search i used edismax parser of Solr and all weights can be found in "Services/SolrService.cs"
 All entity types are listed on results area, ordered by their weights calculated by Solr.
 
-# My thoughts
+## My thoughts
 
 I thought about implementing an algorithm but it was like reinventing the wheel. Correct solution should be a database.
 Weighted text indexes of MongoDb seemed reasonable at first but after some intense Googling i decided on Solr.
