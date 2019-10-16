@@ -8,14 +8,15 @@ Most challenging part for me was learning Solr from scratch and containerizing i
 ## About Project
 
 I used [Apache Solr](https://lucene.apache.org/solr) for weighted search. 
-UI is implemented with React. API for UI is Asp.net core, which makes Http calls to Solr instance. 
+UI is implemented with React. 
+API for UI is Asp.net core, which makes Http calls to Solr instance using [SolrNet Library](https://github.com/SolrNet/SolrNet). 
 Solr and Asp.net Core runs on  docker containers (docker-compose).  
 
 All necessary config and schema files for Solr are in "homework.webspa/Setup/solr/configs" folder. Config folders are copied into docker image created. 
 
 Solr cores and data (which "homework.webspa/Setup/solr/sv_lsm_data.json") are initialized in "Startup.cs" when application starts. I used Polly with HttpClient.
 
-For weighted search i used edismax parser of Solr and all weights can be found in "Services/SolrService.cs"
+For weighted search i used edismax parser of Solr with qf parameters and all weights are defined in "Services/SolrService.cs". 
 All entity types are listed on results area, ordered by their weights calculated by Solr. Search can be further improved by tweaking config and schema.xml files in Setup folder.
 
 ## About Solr
