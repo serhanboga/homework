@@ -39,3 +39,7 @@ After Solr container is up  admin UI can be reached at "localhost:8983".
 [Searching Relational Content](http://blog.mikemccandless.com/2012/01/searching-relational-content-with.html)  
 [Nesting](https://medium.com/@alisazhila/solr-s-nesting-on-solr-s-capabilities-to-handle-deeply-nested-document-structures-50eeaaa4347a)  
 [BlockJoin](https://blog.griddynamics.com/how-to-use-block-join-to-improve-search-efficiency-with-nested-documents-in-solr/)  
+
+#### Docker Hub web and registry issues  
+
+[Log](https://status.docker.com/pages/incident/533c6539221ae15e3f000031/5da5fc78c7b1c11cd8603721)
