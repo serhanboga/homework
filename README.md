@@ -24,3 +24,14 @@ All entity types are listed on results area, ordered by their weights calculated
 I decided to denormalize data before importing to Solr. For example, all locks referencing buildings has that building's fields.
 Entities have different structure, so in Solr i created 4 different cores (Lucene indexes). Buildings, locks, groups, media are indexed.
 After Solr container is up  admin UI can be reached at "localhost:8983". 
+
+
+
+
+Scoring:
+https://lucene.apache.org/core/3_5_0/api/core/org/apache/lucene/search/Similarity.html
+
+Nested Documents:
+http://blog.mikemccandless.com/2012/01/searching-relational-content-with.html
+https://medium.com/@alisazhila/solr-s-nesting-on-solr-s-capabilities-to-handle-deeply-nested-document-structures-50eeaaa4347a
+https://blog.griddynamics.com/how-to-use-block-join-to-improve-search-efficiency-with-nested-documents-in-solr/
