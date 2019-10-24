@@ -1,11 +1,5 @@
-## My thoughts
 
-I thought about implementing an algorithm but it was like reinventing the wheel. Correct solution should be a database.
-Weighted text indexes of MongoDb seemed reasonable at first but after some intense Googling i decided on Solr.
-
-Most challenging part for me was learning Solr from scratch and containerizing it :) I am happy to start learning Solr and I will definitely dive deeper. 
-
-## About Project
+## About
 
 I used [Apache Solr](https://lucene.apache.org/solr) for weighted search. 
 UI is implemented with React. 
@@ -26,8 +20,6 @@ Entities have different structure, so in Solr i created 4 different cores (Lucen
 After Solr container is up  admin UI can be reached at "localhost:8983". 
 
 
-
-
 ### About Solr Scoring:
 
 [Lucene Scoring](https://lucene.apache.org/core/3_5_0/api/core/org/apache/lucene/search/Similarity.html)  
@@ -39,7 +31,3 @@ After Solr container is up  admin UI can be reached at "localhost:8983".
 [Searching Relational Content](http://blog.mikemccandless.com/2012/01/searching-relational-content-with.html)  
 [Nesting](https://medium.com/@alisazhila/solr-s-nesting-on-solr-s-capabilities-to-handle-deeply-nested-document-structures-50eeaaa4347a)  
 [BlockJoin](https://blog.griddynamics.com/how-to-use-block-join-to-improve-search-efficiency-with-nested-documents-in-solr/)  
-
-#### Docker Hub web and registry issues  
-
-[Log](https://status.docker.com/pages/incident/533c6539221ae15e3f000031/5da5fc78c7b1c11cd8603721)
